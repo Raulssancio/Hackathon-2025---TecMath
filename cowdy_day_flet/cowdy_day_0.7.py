@@ -300,7 +300,7 @@ def find_nearest_temp_day_in_band(
 
 # ---------------------- App Flet ----------------------
 def main(page: ft.Page):
-    page.title = "Cowdy Weather 🌤️🐮 (Flet, sin sklearn + lluvia + bandas T)"
+    page.title = "Cowdy Weather 🌤️🐮 "
     page.bgcolor = COLOR_FONDO
     page.padding = 16
     page.scroll = True
@@ -374,7 +374,7 @@ def main(page: ft.Page):
                 texto += f"\nPromedio del día: {meanp*100:.0f} %"
                 lluvia_flag = (any(p >= umbral_prob_opt for p in probs01)) or (meanp >= MEAN_PROB_THRESHOLD)
                 texto += f"\nDecisión (hora≥{umbral_prob_opt:.2f}  o  media≥{MEAN_PROB_THRESHOLD:.2f}): "
-                texto += "🌧️ LLUEVE" if lluvia_flag else "🌤️ NO llueve"
+                texto += "🌧️ Probabilidad de lluvia" if lluvia_flag else "🌤️ NO llueve"
 
         set_gif(float(np.mean(temps)), probs01)
         resultado.value = texto
@@ -511,3 +511,4 @@ def main(page: ft.Page):
 
 if __name__ == "__main__":
     ft.app(target=main)
+
